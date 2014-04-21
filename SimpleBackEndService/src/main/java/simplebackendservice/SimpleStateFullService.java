@@ -1,6 +1,11 @@
 package simplebackendservice;
 
-public class SimpleStateFullService implements ISimpleStateFullService {
+import org.apache.camel.Exchange;
+import org.apache.camel.Message;
+import org.apache.camel.Processor;
+
+public class SimpleStateFullService implements ISimpleStateFullService,
+		Processor {
 
 	private int counter;
 
@@ -14,7 +19,20 @@ public class SimpleStateFullService implements ISimpleStateFullService {
 	}
 
 	@Override
-	public HelloObject hello(String msg) {
-		return new HelloObject(++counter + " : Hello");
+	public HelloObject hello(HelloObject msg) {
+		System.out.println("BackEnd Called. " + msg);
+		return new HelloObject(++counter + " : Hello from back end : " + msg.getMsg());
+	}
+
+	@Override
+	public void process(Exchange exchange) throws Exception {
+
+		Message in = exchange.getIn();
+		HelloObject returnObject = hello((HelloObject) in.getBody());
+
+		Message out = exchange.getOut();
+		out.setHeaders(in.getHeaders());
+		out.setBody(returnObject, HelloObject.class);
+
 	}
 }

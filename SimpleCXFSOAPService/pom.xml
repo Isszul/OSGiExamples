@@ -4,7 +4,7 @@
 	<groupId>SimpleCXFSOAPService</groupId>
 	<artifactId>SimpleCXFSOAPService</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>bundle</packaging>	
+	<packaging>bundle</packaging>
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<plugins>
@@ -40,6 +40,10 @@
 							org.apache.cxf.workqueue,
 							org.apache.cxf.wsdl11,
 							org.apache.servicemix.cxf.transport.http_osgi,
+							org.apache.camel,
+							org.apache.activemq,
+							org.apache.activemq.camel,
+							org.apache.activemq.camel.component,
 							org.osgi.framework,
 							org.springframework.beans.factory.config,
 							simplebackendservice
@@ -69,6 +73,16 @@
 			<groupId>org.eclipse</groupId>
 			<artifactId>org.eclipse.osgi</artifactId>
 			<version>3.8.0.v20120529-1548</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+			<version>5.9.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-pool</artifactId>
+			<version>5.9.0</version>
 		</dependency>
 	</dependencies>
 </project>

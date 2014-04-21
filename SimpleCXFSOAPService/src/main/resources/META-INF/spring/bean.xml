@@ -16,6 +16,7 @@
 
 	<bean id="simpleTestEndPoint" class="simplecxfsoapservice.SimpleTest">
 		<property name="simpleStateFullService" ref="simpleStateFullService" />
+		<property name="camelContext" ref="camelContext" />
 	</bean>
 	
 	<jaxws:endpoint id="aSimpleTest" implementor="#simpleTestEndPoint"

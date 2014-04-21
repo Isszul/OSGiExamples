@@ -1,7 +1,10 @@
 package simplebackendservice;
 
-public class HelloObject {
+import java.io.Serializable;
 
+public class HelloObject implements Serializable {
+
+	private static final long serialVersionUID = -7517058162742469153L;
 	private String msg;
 
 	public HelloObject(String msg) {

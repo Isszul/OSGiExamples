@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:camel="http://camel.apache.org/schema/spring" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/spring">
+		<route>
+			<from uri="direct:hello.in" />
+			<inOut uri="activemq:queue:hello" />
+		</route>
+	</camelContext>
+
+	<bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
+		<property name="connectionFactory">
+			<bean class="org.apache.activemq.ActiveMQConnectionFactory">
+				<property name="brokerURL" value="vm://localhost:61616" />
+				<property name="userName" value="admin" />
+				<property name="password" value="admin" />
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

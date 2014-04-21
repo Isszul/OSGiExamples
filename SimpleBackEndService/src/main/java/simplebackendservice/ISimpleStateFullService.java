@@ -2,6 +2,6 @@ package simplebackendservice;
 
 public interface ISimpleStateFullService {
 
-	public HelloObject hello(String msg);
+	public HelloObject hello(HelloObject msg);
 
 }
