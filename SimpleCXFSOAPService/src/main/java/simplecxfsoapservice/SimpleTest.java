@@ -1,23 +1,21 @@
 package simplecxfsoapservice;
 
+import javax.jws.WebService;
+
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 
-import simplebackendservice.HelloObject;
-import simplebackendservice.ISimpleStateFullService;
+import simplesharedlib.HelloObject;
 
+@WebService(endpointInterface = "simplecxfsoapservice.ISimpleTest")
 public class SimpleTest implements ISimpleTest {
 
-	private ISimpleStateFullService simpleStateFullService;
 	private CamelContext camelContext;
 
 	@Override
 	public String helloWorld() {
 
 		HelloObject sendObject = new HelloObject("Hello from front end");
-
-		// Spring DM
-		// HelloObject helloObj = simpleStateFullService.hello(sendObject);
 
 		try {
 
@@ -29,27 +27,10 @@ public class SimpleTest implements ISimpleTest {
 			return helloObj.getMsg();
 
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		return "Failed";
-	}
-
-	/**
-	 * @return the simpleStateFullService
-	 */
-	public ISimpleStateFullService getSimpleStateFullService() {
-		return simpleStateFullService;
-	}
-
-	/**
-	 * @param simpleStateFullService
-	 *            the simpleStateFullService to set
-	 */
-	public void setSimpleStateFullService(
-			ISimpleStateFullService simpleStateFullService) {
-		this.simpleStateFullService = simpleStateFullService;
 	}
 
 	/**

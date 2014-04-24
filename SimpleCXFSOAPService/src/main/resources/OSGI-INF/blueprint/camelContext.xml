@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
+		   
+           xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
+           xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0">
+
+	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/blueprint">
+		<route>
+			<from uri="direct:hello.in" />
+			<inOut uri="amq:queue:hello" />
+		</route>
+	</camelContext>
+
+
+	<bean id="simpleTestEndPoint" class="simplecxfsoapservice.SimpleTest">
+		<property name="camelContext" ref="camelContext" />
+	</bean>
+	
+	<jaxws:endpoint id="aSimpleTest" implementor="#simpleTestEndPoint"
+		address="/SimpleTest" />
+
+
+
+
+</blueprint>

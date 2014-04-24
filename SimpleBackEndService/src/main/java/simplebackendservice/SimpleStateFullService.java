@@ -4,6 +4,8 @@ import org.apache.camel.Exchange;
 import org.apache.camel.Message;
 import org.apache.camel.Processor;
 
+import simplesharedlib.HelloObject;
+
 public class SimpleStateFullService implements ISimpleStateFullService,
 		Processor {
 

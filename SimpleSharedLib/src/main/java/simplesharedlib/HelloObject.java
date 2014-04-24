@@ -1,4 +1,4 @@
-package simplebackendservice;
+package simplesharedlib;
 
 import java.io.Serializable;
 
@@ -13,7 +13,7 @@ public class HelloObject implements Serializable {
 
 	/**
 	 * @return the msg
-	 */
+	 */ 
 	public String getMsg() {
 		return msg;
 	}
