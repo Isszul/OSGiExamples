@@ -1,24 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0"
-		   
-           xmlns:jaxws="http://cxf.apache.org/blueprint/jaxws"
-           xmlns:ext="http://aries.apache.org/blueprint/xmlns/blueprint-ext/v1.0.0">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:cxf="http://camel.apache.org/schema/blueprint/cxf"
+	xsi:schemaLocation="
+           http://www.osgi.org/xmlns/blueprint/v1.0.0
+           http://www.osgi.org/xmlns/blueprint/v1.0.0/blueprint.xsd
+           http://camel.apache.org/schema/blueprint/cxf
+           http://camel.apache.org/schema/blueprint/cxf/camel-cxf.xsd">
 
-	<camelContext id="camelContext" xmlns="http://camel.apache.org/schema/blueprint">
-		<route>
-			<from uri="direct:hello.in" />
+
+	<cxf:cxfEndpoint id="simpleTest" address="/SimpleTest"
+		serviceClass="simplecxfsoapservice.ISimpleTest" />
+
+	<camelContext id="camelContext"
+		xmlns="http://camel.apache.org/schema/blueprint">
+		<route id="simpleTestRoute">
+			<from uri="cxf:bean:simpleTest" />
+			<convertBodyTo type="simplesharedlib.HelloObject" />
 			<inOut uri="amq:queue:hello" />
+			<convertBodyTo type="java.lang.String" />
 		</route>
 	</camelContext>
-
-
-	<bean id="simpleTestEndPoint" class="simplecxfsoapservice.SimpleTest">
-		<property name="camelContext" ref="camelContext" />
-	</bean>
-	
-	<jaxws:endpoint id="aSimpleTest" implementor="#simpleTestEndPoint"
-		address="/SimpleTest" />
-
 
 
 

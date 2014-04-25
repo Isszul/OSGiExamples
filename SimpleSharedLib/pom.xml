@@ -18,9 +18,8 @@
 				<extensions>true</extensions>
 				<configuration>
 					<instructions>
-						<Export-Package>
-							*
-						</Export-Package>
+						<Import-Package>*</Import-Package>
+						<Export-Package>simplesharedlib</Export-Package>
 					</instructions>
 				</configuration>
 			</plugin>
@@ -37,4 +36,12 @@
 
 
 
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-core</artifactId>
+			<version>2.12.1</version>
+			<type>bundle</type>
+		</dependency>
+	</dependencies>
 </project>

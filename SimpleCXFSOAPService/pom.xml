@@ -17,7 +17,7 @@
 					<instructions>
 						<Private-Package>simplecxfsoapservice</Private-Package>
 						<Bundle-Activator>simplecxfsoapservice.Activator</Bundle-Activator>
-						<Import-Package>*</Import-Package>
+						<Import-Package>simplesharedlib,*</Import-Package>
 					</instructions>
 				</configuration>
 			</plugin>
