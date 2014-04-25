@@ -1,0 +1,17 @@
+/SimpleBackEndService/.settings/org.eclipse.ltk.core.refactoring.prefs
+/SimpleBackEndService/.settings/org.eclipse.m2e.core.prefs
+/SimpleBackEndService/.settings/org.eclipse.wst.common.project.facet.core.xml
+/SimpleBackEndService/.settings/org.jboss.ide.eclipse.as.core.prefs
+/SimpleBackEndService/target/classes/.gitignore
+/SimpleBackEndService/target/classes/META-INF/MANIFEST.MF
+/SimpleBackEndService/target/classes/OSGI-INF/blueprint/camelContext.xml
+/SimpleCXFSOAPService/.settings/org.eclipse.m2e.core.prefs
+/SimpleCXFSOAPService/.settings/org.eclipse.wst.common.project.facet.core.xml
+/SimpleCXFSOAPService/target/SimpleCXFSOAPService-0.0.1-SNAPSHOT.jar
+/SimpleCXFSOAPService/target/classes/.gitignore
+/SimpleCXFSOAPService/target/classes/META-INF/MANIFEST.MF
+/SimpleCXFSOAPService/target/classes/OSGI-INF/blueprint/camelContext.xml
+/SimpleCXFSOAPService/target/classes/log4j.properties
+/SimpleBackEndService/target/classes/simplebackendservice/*.class
+/SimpleBackEndService/target/classes/simplebackendservice/*.class
+/SimpleBackEndService/target/classes/simplebackendservice/*.class
